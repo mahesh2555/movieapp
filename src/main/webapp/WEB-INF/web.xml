@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
+         https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+         version="5.0">
+
+    <!-- Application Name -->
+    <display-name>Movie App</display-name>
+
+    <!-- ============================= -->
+    <!-- Front Controller Servlet      -->
+    <!-- ============================= -->
+    <servlet>
+        <servlet-name>MovieController</servlet-name>
+        <servlet-class>com.example.movieapp.controller.MovieControllerServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>MovieController</servlet-name>
+        <url-pattern>/movies/*</url-pattern>
+    </servlet-mapping>
+
+    <!-- ============================= -->
+    <!-- Welcome Page                  -->
+    <!-- ============================= -->
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <!-- ============================= -->
+    <!-- Encoding Filter               -->
+    <!-- ============================= -->
+    <filter>
+        <filter-name>EncodingFilter</filter-name>
+        <filter-class>com.example.movieapp.filter.EncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>EncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+</web-app>
